@@ -1,26 +1,227 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap');
+
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --orange:      #F97316;
+  --red:         #EF4444;
+  --amber:       #F59E0B;
+  --grad:        linear-gradient(135deg, #EF4444 0%, #F97316 50%, #F59E0B 100%);
+  --bg:          #fdfdfc;
+  --cream:       #fbfbf9;
+  --ink:         #1a1916;
+  --ink-2:       #21201c;
+  --muted:       rgba(26,25,22,0.45);
+  --muted-2:     rgba(26,25,22,0.28);
+  --border:      rgba(26,25,22,0.10);
+  --dark-bg:     #111110;
+  --dark-border: rgba(255,255,255,0.07);
+  --wordmark:    #f5f5f4;
+  --nav-h:       68px;
+  --ease:        cubic-bezier(0, 0, 0.2, 1);
+
+  /* ── FLUID LAYOUT TOKENS ──
+     Minimum guaranteed padding so nothing bleeds off-screen.
+     24px floor on mobile, scales to 64px on wide desktop.
+  */
+  --page-px:    clamp(24px, 4vw, 64px);
+  --content-w:  1400px;
+
+  /* ── SECTION RHYTHM ── */
+  --section-py: clamp(80px, 9vw, 144px);
+  --card-gap:   clamp(4px, 0.35vw, 6px);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--nav-h) + 24px);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: -0.02em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* ── FLUID CONTAINER — use on every section inner div ── */
+.container {
+  width: 100%;
+  max-width: var(--content-w);
+  margin-inline: auto;
+  padding-inline: var(--page-px);
+}
+
+::selection { background: rgba(249,115,22,0.15); }
+
+/* ── TYPING CURSOR ── */
+.typing-cursor::after {
+  content: '|';
+  animation: blink 0.75s step-end infinite;
+  color: var(--orange);
+  font-weight: 300;
+}
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+
+/* ── GRADIENT TEXT ── */
+.grad-text {
+  background: linear-gradient(135deg, #EF4444, #F97316 60%, #F59E0B);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── CORNER SQUARE ── */
+.corner-sq::before {
+  content: '';
+  position: absolute;
+  top: -0.9px; right: -0.9px;
+  width: 20px; height: 20px;
+  background: linear-gradient(135deg, #EF4444 0%, #F97316 50%, #F59E0B 100%);
+  z-index: 3;
+}
+
+/* ── SCROLL REVEAL ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.55s var(--ease), transform 0.55s var(--ease);
+  will-change: opacity, transform;
+}
+.reveal.in {
+  opacity: 1;
+  transform: translateY(0);
+  will-change: auto;
+}
+/* hero-reveal: triggered by Intro.tsx after cover fades */
+.hero-reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s var(--ease), transform 0.6s var(--ease);
+  will-change: opacity, transform;
+}
+.hero-reveal.in {
+  opacity: 1;
+  transform: translateY(0);
+  will-change: auto;
+}
+.delay-1 { transition-delay: 0.07s; }
+.delay-2 { transition-delay: 0.14s; }
+.delay-3 { transition-delay: 0.21s; }
+.delay-4 { transition-delay: 0.28s; }
+.delay-5 { transition-delay: 0.35s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal, .hero-reveal { opacity: 1; transform: none; transition: none; }
+  .typing-cursor::after { display: none; }
+}
+
+/* ── STAT CARD CONTAINER QUERY ── */
+.stat-card { container-type: inline-size; }
+
+/* ── ACCORDION ── */
+.svc-panel { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 380ms var(--ease); }
+.svc-panel.open { grid-template-rows: 1fr; }
+.svc-panel-inner { overflow: hidden; }
+
+/* ── MOBILE DRAWER ── */
+.drawer {
+  opacity: 0;
+  transform: translateY(-6px);
+  pointer-events: none;
+  transition: opacity 250ms var(--ease), transform 250ms var(--ease);
+}
+.drawer.open {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: all;
+}
+
+/* ── WORK OVERLAY ── */
+.work-overlay {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 380ms var(--ease);
+}
+.work-overlay.open {
+  opacity: 1;
+  pointer-events: all;
+}
+.work-panel {
+  transform: translateY(100%);
+  transition: transform 380ms var(--ease);
+}
+.work-overlay.open .work-panel {
+  transform: translateY(0);
+}
+
+/* ── NAV LINK HOVER UNDERLINE ── */
+.nav-link { position: relative; }
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; left: 0; right: 0;
+  height: 0.9px;
+  background: var(--ink);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 250ms var(--ease);
+}
+.nav-link:hover::after { transform: scaleX(1); }
+
+/* ── INTRO ── */
+#intro-wordmark { opacity: 0; }
+#intro-bar { width: 0; }
+
+/* ── SCROLLBAR NONE ── */
+.no-scrollbar { scrollbar-width: none; }
+.no-scrollbar::-webkit-scrollbar { display: none; }
+
+
+/* ── APPLE-AESTHETIC WORD FADE-UP ──
+   Usage: wrap description text in <span class="word-fade-up">
+   Each <span class="word"> inside animates with staggered delay.
+   Trigger by adding .in to the parent.
+*/
+.word-fade-up .word {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(14px);
+  transition:
+    opacity  0.52s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    transform 0.52s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: opacity, transform;
+}
+.word-fade-up.in .word {
+  opacity: 1;
+  transform: translateY(0);
+  will-change: auto;
+}
+
+/* ── SECTION LABEL (dot + uppercase) ── */
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.section-label-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--ink);
+  flex-shrink: 0;
+}
+.section-label-text {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink);
 }
