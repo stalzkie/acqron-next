@@ -12,10 +12,8 @@ const values = [
 const team = [
   { initials: "RP", name: "Ron Paragoso", role: "Founder & CEO", bio: "Visionary leader translating complex problems into elegant software solutions and strategic direction." },
   { initials: "SD", name: "Stalingrad Dollosa", role: "Co-Founder & Software Engineer", bio: "Technical expert who works directly with clients to integrate, customize, and solve complex product problems in real time — embedded in the firm until it's running." },
-  { initials: "JV", name: "Joshua Vidal", role: "Marketer & UI/UX", bio: "UI/UX designer and marketer passionate about crafting intuitive user experiences and driving brand engagement through creative digital strategies." },
-  { initials: "JT", name: "Jewel Tolentino", role: "Marketer", bio: "Marketing strategist and brand builder who drives Acqron's growth, outreach, and client acquisition efforts." },
-  { initials: "DJ", name: "Don Jun Portarcos", role: "Marketer", bio: "Marketing specialist focused on digital strategy, brand growth, and creative outreach for Acqron's products." },
   { initials: null, name: "You?", role: "Open Role", bio: "We're growing into law and accounting. If you understand how professional services firms operate and want to build for them, we'd love to talk." },
+  { initials: null, name: "Growing", role: "Open Role", bio: "Acqron is expanding its team. If you want to build tools that real firms depend on every day, we'd love to hear from you." },
 ];
 
 const facts = [
@@ -194,7 +192,7 @@ export default function About() {
           >
             {displayed}
           </h3>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 8 }} className="team-grid">
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 8 }} className="team-grid">
             {team.map((t, i) => (
               <div
                 key={i}
