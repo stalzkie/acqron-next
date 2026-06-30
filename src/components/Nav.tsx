@@ -84,7 +84,6 @@ export default function Nav() {
 
           {/* Right buttons */}
           <div className="nav-btns" style={{ display: "flex", alignItems: "center", gap: 8, flexShrink: 0 }}>
-            <a href="#contact" style={ghostBtn}>Contact</a>
             <a href="#contact" style={blackBtn}>Work With Us</a>
           </div>
 
@@ -137,7 +136,6 @@ const base: React.CSSProperties = {
   lineHeight: 1, whiteSpace: "nowrap", textDecoration: "none", cursor: "pointer",
   transition: "opacity 150ms, transform 150ms",
 };
-const ghostBtn: React.CSSProperties = { ...base, background: "rgba(26,25,22,0.07)", color: "var(--ink-2)" };
 const blackBtn: React.CSSProperties = { ...base, background: "var(--ink-2)", color: "#fbfbf9" };
 
 function hamLine(open: boolean, n: number): React.CSSProperties {
