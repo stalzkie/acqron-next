@@ -14,7 +14,7 @@ export default function Footer() {
           {[
             { title: "Services", links: [["#services","Web Development"],["#services","Workflow Automation"],["#services","Dashboards & Analytics"],["#services","Technical Consulting"],["#services","Team Training"]] },
             { title: "Company",  links: [["#about","About"],["#work","Work"],["#testimonials","Testimonials"],["#contact","Contact"]] },
-            { title: "Contact",  links: [["mailto:hello@acqron.com","hello@acqron.com"],["#contact","Book a Call"],["#about","Bacolod City, Philippines"]] },
+            { title: "Contact",  links: [["mailto:info@acqron.com","info@acqron.com"],["#contact","Book a Call"],["#about","Bacolod City, Philippines"]] },
           ].map((col) => (
             <div key={col.title}>
               <div style={{ fontSize: 10, fontWeight: 600, letterSpacing: ".08em", textTransform: "uppercase", color: "var(--muted-2)", marginBottom: 14 }}>{col.title}</div>

@@ -66,7 +66,7 @@ export default function Contact() {
             </p>
             <div className="contact-reveal reveal delay-3" style={{ display: "flex", flexDirection: "column", gap: 14, marginTop: 8 }}>
               {[
-                { icon: "mail", text: "hello@acqron.com" },
+                { icon: "mail", text: "info@acqron.com" },
                 { icon: "pin", text: "Bacolod City, Philippines" },
                 { icon: "clock", text: "Response within 24 hours" },
               ].map((row, i) => (
@@ -77,7 +77,7 @@ export default function Contact() {
                     {row.icon === "clock" && <><circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" /></>}
                   </svg>
                   {row.icon === "mail"
-                    ? <a href="mailto:hello@acqron.com" style={{ fontSize: 13, fontWeight: 500, letterSpacing: "-0.01em", color: "var(--muted)", textDecoration: "none" }}>{row.text}</a>
+                    ? <a href="mailto:info@acqron.com" style={{ fontSize: 13, fontWeight: 500, letterSpacing: "-0.01em", color: "var(--muted)", textDecoration: "none" }}>{row.text}</a>
                     : <span style={{ fontSize: 13, fontWeight: 500, letterSpacing: "-0.01em", color: "var(--muted)" }}>{row.text}</span>
                   }
                 </div>
