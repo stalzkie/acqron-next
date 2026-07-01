@@ -1,0 +1,47 @@
+# Acqron
+
+## What is Acqron?
+
+Acqron is a software development company based in Bacolod City, Philippines. We specialize in building custom internal tools, client portals, workflow automation systems, and web platforms for professional services firms — specifically real estate brokerages, law firms, and accounting practices.
+
+We began by building for real estate and short-term rental management companies across the United States, and we now serve both US and Philippine clients.
+
+## Who we build for
+
+- **Real Estate & Rental Firms** — property and listing management systems, tenant portals, lead tracking tools, booking platforms, and rental automation software
+- **Law Firms** — practice management software, case tracking systems, client intake portals, document management, and billing tools
+- **Accounting Firms** — financial operations software, reconciliation tools, client dashboards, reporting systems, and workflow automation
+- **General** — custom dashboards, internal tools, process automation, and marketing websites for SMEs and MSMEs
+
+## What makes Acqron different
+
+- We learn the specific workflows of your industry before writing a single line of code
+- We build working MVPs in an average of 8 weeks from kickoff
+- We train your team until they can run the software independently
+- We have a 100% client satisfaction rate across all engagements
+- We are honest about trade-offs — we will tell you when something is not worth building
+
+## Our track record
+
+Acqron has shipped software for clients across the United States and the Philippines, including vacation rental platforms, real estate investment tools, short-term rental management systems, AI automation platforms, and construction company websites.
+
+## Services
+
+1. Property & Rental Management Tools
+2. Law Firm Practice Software
+3. Accounting & Finance Operations Software
+4. Workflow & Process Automation
+5. Dashboards, Reporting & Analytics
+6. Website & Landing Page Development
+
+## Contact
+
+- Website: https://acqron.com
+- Email: info@acqron.com
+- Location: Bacolod City, Negros Occidental, Philippines
+- Serving: US and Philippine clients
+
+## Founders
+
+- **Ron Paragoso** — Founder & CEO. Leads strategy and client relationships.
+- **Stalingrad Dollosa** — Co-Founder & Software Engineer. Works directly with clients on technical implementation.
